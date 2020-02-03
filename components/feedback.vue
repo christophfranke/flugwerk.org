@@ -31,6 +31,23 @@
         </slide>
       </carousel>
     </client-only>
+
+    <audio controls>
+      <source src="sound1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element or sound format.
+    </audio>
+    <audio controls>
+      <source src="sound2.mp3" type="audio/mpeg">
+    Your browser does not support the audio element or sound format.
+    </audio>
+    <audio controls>
+      <source src="sound3.mp3" type="audio/mpeg">
+    Your browser does not support the audio element or sound format.
+    </audio>
+    <audio controls>
+      <source src="sound4.mp3" type="audio/mpeg">
+    Your browser does not support the audio element or sound format.
+    </audio>
   </div>
 </template>
 
