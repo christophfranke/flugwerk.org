@@ -1,6 +1,8 @@
 <template>
   <div>
     <VideoPlayer></VideoPlayer>
+    <TextBlock></TextBlock>
+    <Feedback></Feedback>
   </div>
 </template>
 

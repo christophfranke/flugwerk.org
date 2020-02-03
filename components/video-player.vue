@@ -4,13 +4,13 @@
       <source src="/fluchttest.mp4" type="video/mp4">
     </video>
     <div class="box">
-      Flugwerk
+      <h1>Flugwerk</h1>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-@import '@/style/index.scss';
+@import '@/style/_imports.scss';
 
 video {
   width: 100%;
@@ -26,9 +26,16 @@ video {
   position: absolute;
   bottom: 10vw;
   right: 10vw;
-  padding: 20px 10px;
-  font-size: 80px;
-  color: $blue;
   background-color: rgba($yellow, 0.6);
+
+  h1 {
+    font-size: 140px;
+    letter-spacing: 40px;
+    padding: 0 0 0 40px;
+    font-family: 'Headline One';
+    color: $blue-on-yellow;
+    font-weight: 400;
+    margin: 0;    
+  }
 }
 </style>
