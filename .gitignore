@@ -1,0 +1,6 @@
+
+dist/
+.nuxt/
+doku/
+node_modules/
+*.mp4
