@@ -10,27 +10,27 @@
 import components from '@/components'
 import slices from '@/slices'
 
-// use fixed home slug for home page
-const slug = 'home'
-
 export default {
-  name: 'Home',
+  name: 'Page',
   components: {
     ...components,
     ...slices
   },
 
   computed: {
+    slug() {
+      return this.$router.currentRoute.params.page
+    },
     page() {
-      return this.$store.getters.page(slug)
+      return this.$store.getters.page(this.slug)
     },
     slices() {
-      return this.$store.getters.slices(slug)
+      return this.$store.getters.slices(this.slug)
     },
   },
 
   asyncData({ params, store, error }) {
-    if (!store.getters.page(slug)) {
+    if (!store.getters.page(params.page)) {
       error({ statusCode: 404, message: 'Page not found' })
     }
   }

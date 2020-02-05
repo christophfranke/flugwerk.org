@@ -1,5 +1,5 @@
 export default {
-  VideoPlayer: () => import('./video-player.vue'),
-  TextBlock: () => import('./text-block.vue'),
-  Feedback: () => import('./feedback.vue')
+  PrismicImage: () => import('./prismic-image.vue'),
+  RichText: () => import('./rich-text.vue'),
+  Slice: () => import('./slice.vue')
 }

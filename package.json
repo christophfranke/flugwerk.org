@@ -11,6 +11,8 @@
   "dependencies": {
     "node-sass": "^4.13.1",
     "nuxt": "^2.11.0",
+    "prismic-dom": "^2.1.0",
+    "prismic-javascript": "^2.1.5",
     "sass-loader": "^8.0.2",
     "vue-carousel": "^0.18.0"
   }

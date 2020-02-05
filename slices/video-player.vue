@@ -1,13 +1,28 @@
 <template>
   <div class="container">
     <video autoplay muted loop>
-      <source src="/fluchttest.mp4" type="video/mp4">
+      <source :src="primary.video.url" type="video/mp4">
     </video>
     <div class="box">
-      <h1>Flugwerk</h1>
+      <RichText :content="primary.text" />
     </div>
   </div>
 </template>
+
+<script>
+import components from '@/components'
+
+export default {
+  name: 'Video',
+  components,
+  props: {
+    primary: {
+      type: Object,
+      required: true
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 @import '@/style/_imports.scss';
