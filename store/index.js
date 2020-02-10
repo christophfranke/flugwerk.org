@@ -7,6 +7,7 @@ import linkResolver from '~/util/linkResolver'
 export default () => new Vuex.Store({
   getters: {
     content: ({ content }) => content,
+    header: ({ content }) => content.find(doc => doc.type === 'header'),
     pages: (state, { content }) => content.filter(doc => doc.type === 'page'),
     page: (state, { pages }) => slug => {
       const page = pages.find(page => page.uid === slug)
