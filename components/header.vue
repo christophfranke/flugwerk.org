@@ -2,7 +2,7 @@
   <header v-if="header">
     <nav>
       <ul class="first">
-        <li><nuxt-link to="/"><h1>{{ title }}</h1></nuxt-link></li>
+        <li><nuxt-link to="/"><h1><span>{{ title }}</span></h1></nuxt-link></li>
         <li v-for="(item, index) of firstLevelNavItems" :key="index">
           <ul v-if="item.submenu.length > 0" class="second">
             <li><span>&nbsp;</span></li>
@@ -15,7 +15,7 @@
           <nuxt-link :to="item.href" v-if="item.href">
             <span>{{ item.name }}</span>
           </nuxt-link>
-          <span v-else>{{ item.name }}</span>
+          <span v-else class="no-link">{{ item.name }}</span>
         </li>
         <li v-for="(item, index) of socialMediaNavItems" :key="index" class="social-media">
           <a :href="item.href" target="_blank"><i :class="item.icon"></i></a>
@@ -80,17 +80,24 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/style/_imports';
+.no-link {
+  cursor: default;
+}
+
 nav {
+  a, a:visited {
+    color: $blue-on-yellow;
+  }
   ul {
     margin: 0;
-    background-color: $white;
+    background-color: $yellow;
     &.first {
-      padding: 4vw;
+      padding: 2vw 4vw;
       display: flex;
       span {
         z-index: 2;
         position: relative;
-        background-color: $white;
+        background-color: $yellow;
         margin: 1vw 4vw 1vw 1vw;
       }
     }
@@ -110,9 +117,10 @@ nav {
   }
 
   li {
-    background-color: $white;
+    background-color: $yellow;
     display: block;
     position: relative;
+    text-transform: uppercase;
     &:hover ul.second {
       opacity: 1;
       transform: none;

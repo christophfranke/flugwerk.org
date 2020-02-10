@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/_imports.scss';
+@import '@/style/_imports';
 
 video {
   width: 100%;
@@ -35,6 +35,11 @@ video {
 .container {
   position: relative;
 }
+
+</style>
+
+<style lang="scss">
+@import '@/style/_imports';
 
 .box {
   text-transform: uppercase;
