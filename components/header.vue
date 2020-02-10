@@ -1,23 +1,23 @@
 <template>
   <header v-if="header">
-    <nuxt-link to="/"><h1>{{ title }}</h1></nuxt-link>
     <nav>
-      <ul>
+      <ul class="first">
+        <li><nuxt-link to="/"><h1>{{ title }}</h1></nuxt-link></li>
         <li v-for="(item, index) of firstLevelNavItems" :key="index">
+          <ul v-if="item.submenu.length > 0" class="second">
+            <li><span>&nbsp;</span></li>
+            <li v-for="(subitem, index) of item.submenu" :key="index">
+              <nuxt-link :to="subitem.href">
+                <span>{{ subitem.name }}</span>
+              </nuxt-link>
+            </li>
+          </ul>
           <nuxt-link :to="item.href" v-if="item.href">
             <span>{{ item.name }}</span>
           </nuxt-link>
           <span v-else>{{ item.name }}</span>
-          <ul v-if="item.submenu.length > 0">
-            <li v-for="(subitem, index) of item.submenu" :key="index">
-              <nuxt-link :to="subitem.href" v-if="subitem.href">
-                <span>{{ subitem.name }}</span>
-              </nuxt-link>
-              <span v-else>{{ subitem.name }}</span>
-            </li>
-          </ul>
         </li>
-        <li v-for="(item, index) of socialMediaNavItems" :key="index">
+        <li v-for="(item, index) of socialMediaNavItems" :key="index" class="social-media">
           <a :href="item.href" target="_blank"><i :class="item.icon"></i></a>
         </li>
       </ul>
@@ -77,3 +77,52 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '@/style/_imports';
+nav {
+  ul {
+    margin: 0;
+    background-color: $white;
+    &.first {
+      padding: 4vw;
+      display: flex;
+      span {
+        z-index: 2;
+        position: relative;
+        background-color: $white;
+        margin: 1vw 4vw 1vw 1vw;
+      }
+    }
+    &.second {
+      padding: 0;
+      transition: opacity .2s, transform .3s ease-out;
+      display: block;
+      position: absolute;
+      opacity: 0;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  li {
+    background-color: $white;
+    display: block;
+    position: relative;
+    &:hover ul.second {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .social-media {
+    margin-left: 2vw;
+    position: relative;
+    z-index: 2;
+  }
+}
+</style>
