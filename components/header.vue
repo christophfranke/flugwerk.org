@@ -103,7 +103,7 @@ nav {
     }
     &.second {
       padding: 0;
-      transition: opacity .2s, transform .3s ease-out;
+      transition: opacity .3s, transform .3s ease-out;
       display: block;
       position: absolute;
       opacity: 0;
