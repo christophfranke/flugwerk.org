@@ -3,7 +3,7 @@
     <nuxt-link to="/"><h1>{{ title }}</h1></nuxt-link>
     <nav>
       <ul>
-        <li v-for="(item, index) of firstLevel" :key="index">
+        <li v-for="(item, index) of firstLevelNavItems" :key="index">
           <nuxt-link :to="item.href" v-if="item.href">
             <span>{{ item.name }}</span>
           </nuxt-link>
@@ -17,6 +17,9 @@
             </li>
           </ul>
         </li>
+        <li v-for="(item, index) of socialMediaNavItems" :key="index">
+          <a :href="item.href" target="_blank">{{ item.icon }}</a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -28,26 +31,32 @@ export default {
   name: 'Header',
   computed: {
     header () {
-      // console.log(this.$store.getters.header.data)
-      // console.log(this.$store.getters.header.data.body)
       return this.$store.getters.header
     },
     title () {
       return this.header && this.header.data.title[0].text
     },
-    firstLevel () {
+    firstLevelNavItems () {
       return this.header && this.header.data.body
         .filter(slice => slice.slice_type === 'menu')
         .map(slice => ({
           name: this.name(slice.primary),
           href: this.href(slice.primary),
-          submenu: this.secondLevel(slice)
+          submenu: this.secondLevelNavItems(slice)
+        }))
+    },
+    socialMediaNavItems () {
+      return this.header && this.header.data.body
+        .filter(slice => slice.slice_type === 'social_media_item')
+        .map(slice => ({
+          icon: slice.primary.icon,
+          href: slice.primary.link.url
         }))
     }
   },
 
   methods: {
-    secondLevel(slice) {
+    secondLevelNavItems(slice) {
       return slice.items.map(item => ({
         name: this.name(item),
         href: this.href(item)
