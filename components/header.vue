@@ -18,7 +18,7 @@
           </ul>
         </li>
         <li v-for="(item, index) of socialMediaNavItems" :key="index">
-          <a :href="item.href" target="_blank">{{ item.icon }}</a>
+          <a :href="item.href" target="_blank"><i :class="item.icon"></i></a>
         </li>
       </ul>
     </nav>
@@ -49,7 +49,7 @@ export default {
       return this.header && this.header.data.body
         .filter(slice => slice.slice_type === 'social_media_item')
         .map(slice => ({
-          icon: slice.primary.icon,
+          icon: this.classNames(slice.primary.icon),
           href: slice.primary.link.url
         }))
     }
@@ -67,6 +67,12 @@ export default {
     },
     href(item) {
       return (item.page && item.page.uid && `/${item.page.uid}`)
+    },
+    classNames(icon) {
+      return {
+        facebook: ['fab', 'fa-facebook-f'],
+        instagram: ['fab', 'fa-instagram']
+      }[icon.toLowerCase()]
     }
   }
 }
