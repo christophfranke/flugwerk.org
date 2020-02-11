@@ -1,6 +1,5 @@
 <template>
   <div>
-    Team
     <ul>
       <li v-for="profile in profiles" :key="profile.uid">
         <nuxt-link :to="profile.url">
