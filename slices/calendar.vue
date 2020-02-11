@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="main">
     <client-only>
       <carousel :per-page="3" :navigation-enabled="true" :pagination-enabled="false" :adjustable-height="true">
         <slide v-for="(event, i) of events" :key="i" class="slide">
@@ -37,6 +37,11 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/style/_imports';
+
+.main {
+  width: 80vw;
+  margin: 0 auto;
+}
 
 .slide {
   width: 33%;
