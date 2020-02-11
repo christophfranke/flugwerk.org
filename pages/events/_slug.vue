@@ -25,10 +25,6 @@ export default {
     if (!store.getters.event(params.slug)) {
       error({ statusCode: 404, message: 'Page not found' })
     }
-  },
-
-  mounted () {
-    console.log(this.$route.params.slug)
   }
 }
 </script>
