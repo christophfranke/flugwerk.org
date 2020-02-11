@@ -6,7 +6,8 @@ const slicesMap = {
   feedback_text: Slices.FeedbackText,
   feedback_audio: Slices.FeedbackAudio,
   calendar: Slices.Calendar,
-  team: Slices.Team
+  team: Slices.Team,
+  image: Slices.FullImage
 }
 
 export default slice => slicesMap[slice.slice_type]
