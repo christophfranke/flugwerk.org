@@ -2,6 +2,7 @@
   <div>
     <RichText :content="event.title" />
     <PrismicImage :image="event.image" />
+    <Time :time="event.time" />
     <RichText :content="event.content" />
   </div>
 </template>

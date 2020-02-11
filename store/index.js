@@ -13,7 +13,8 @@ export default () => new Vuex.Store({
       const page = pages.find(page => page.uid === slug)
       return page && page.data
     },
-    events: (state, { content }) => content.filter(doc => doc.type === 'event'),
+    events: (state, { content }) => content.filter(doc => doc.type === 'event')
+      .sort((a, b) => new Date(a.data.time) - new Date(b.data.time)),
     event: (state, { events }) => slug => {
       const event = events.find(event => event.uid === slug)
       return event && event.data

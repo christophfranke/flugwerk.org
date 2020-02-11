@@ -6,6 +6,7 @@
           <div>
             <RichText :content="event.title" />
             <PrismicImage :image="event.image" />
+            <Time :time="event.time" />
             <RichText :content="event.content" />
             <nuxt-link :to="event.url">mehr</nuxt-link>
           </div>
