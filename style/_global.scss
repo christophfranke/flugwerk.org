@@ -1,8 +1,9 @@
+$fa-font-path: '../assets/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/brands';
+
 @import '_imports.scss';
 
 @import '_fonts.scss';
 @import '_tags.scss';
-
-$fa-font-path: '../assets/fontawesome';
-@import '@fortawesome/fontawesome-free/scss/fontawesome';
-@import '@fortawesome/fontawesome-free/scss/brands';
+@import '_classes.scss';

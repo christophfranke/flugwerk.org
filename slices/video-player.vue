@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="main">
     <video autoplay muted loop>
       <source :src="primary.video.url" type="video/mp4">
     </video>
@@ -31,8 +31,7 @@ video {
   width: 100%;
 }
 
-
-.container {
+.main {
   position: relative;
 }
 

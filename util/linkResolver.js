@@ -1,6 +1,4 @@
 export default doc => ({
-  page: `/${doc.uid}`,
-  home: '/',
-  shop: '/meister-eckart-shop',
-  site_navigation: '/'
+  page: doc.uid === 'home' ? '/' : `/${doc.uid}`,
+  event: `/events/${doc.uid}`
 })[doc.type]

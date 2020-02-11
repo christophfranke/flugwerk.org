@@ -27,10 +27,4 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/style/_imports.scss';
-
-.container {
-  width: 50vw;
-  color: $black;
-  margin: 0 auto;
-}
 </style>

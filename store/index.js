@@ -13,6 +13,11 @@ export default () => new Vuex.Store({
       const page = pages.find(page => page.uid === slug)
       return page && page.data
     },
+    events: (state, { content }) => content.filter(doc => doc.type === 'event'),
+    event: (state, { events }) => slug => {
+      const event = events.find(event => event.uid === slug)
+      return event && event.data
+    },
     slices: (state, { page, home }) => slug => (slug ? page(slug) : home).body,
     // navigation: (state, { content }) => content.find(doc => doc.type === 'site_navigation').data.pages,
     // navEntries: (state, { navigation, page }) =>
