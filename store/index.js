@@ -19,13 +19,12 @@ export default () => new Vuex.Store({
       const event = events.find(event => event.uid === slug)
       return event && event.data
     },
-    slices: (state, { page, home }) => slug => (slug ? page(slug) : home).body,
-    // navigation: (state, { content }) => content.find(doc => doc.type === 'site_navigation').data.pages,
-    // navEntries: (state, { navigation, page }) =>
-    //   navigation.map(navigation => ({
-    //     title: (navigation.name && navigation.name[0].text) || (navigation.page.uid && page(navigation.page.uid).title[0].text),
-    //     url: linkResolver(navigation.page)
-    //   })).filter(({ url }) => url)
+    profiles: (state, { content }) => content.filter(doc => doc.type === 'profile'),
+    profile: (state, { profiles }) => uid => {
+      const profile = profiles.find(profile => profile.uid === uid)
+      return profile && profile.data
+    },
+    slices: (state, { page, home }) => slug => (slug ? page(slug) : home).body
   },
   state: {
     content: {}
