@@ -57,10 +57,11 @@ export default {
 
   methods: {
     secondLevelNavItems(slice) {
-      return slice.items.map(item => ({
-        name: this.name(item),
-        href: this.href(item)
-      }))
+      return slice.items.filter(item => item.page || item.name.length > 0)
+        .map(item => ({
+          name: this.name(item),
+          href: this.href(item)
+        }))
     },
     name(item) {
       return (item.name[0] && item.name[0].text) || this.$store.getters.page(item.page.uid).title[0].text
