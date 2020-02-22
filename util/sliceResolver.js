@@ -7,7 +7,8 @@ const slicesMap = {
   feedback_audio: Slices.FeedbackAudio,
   calendar: Slices.Calendar,
   team: Slices.Team,
-  image: Slices.FullImage
+  image: Slices.FullImage,
+  foto_carousel: Slices.FotoCarousel
 }
 
 export default slice => slicesMap[slice.slice_type]

@@ -5,5 +5,6 @@ export default {
   FeedbackAudio: () => import('./feedback-audio.vue'),
   Calendar: () => import('./calendar.vue'),
   Team: () => import('./team.vue'),
-  FullImage: () => import('./full-image.vue')
+  FullImage: () => import('./full-image.vue'),
+  FotoCarousel: () => import('./foto-carousel.vue')
 }
