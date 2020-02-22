@@ -21,8 +21,23 @@
 
     computed: {
       html() {
-        return PrismicDOM.RichText.asHtml(this.content, linkResolver)
+        return PrismicDOM.RichText
+          .asHtml(this.content, linkResolver)
+          .replace(/<a([^>]*)>/g, (match, group) => {
+            return `<a${group} onclick="return goto(this)">`
+          })
       },
     },
+
+    mounted () {
+      if (window) {
+        window.goto = element => {
+          if (element.rel !== 'noopener') {
+            this.$router.push(element.getAttribute('href'))
+            return false
+          }
+        }
+      }
+    }
   }
 </script>
