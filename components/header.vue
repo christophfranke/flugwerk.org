@@ -1,12 +1,13 @@
 <template>
   <header v-if="header">
     <nav>
+      <PrismicImage :image="header.data.logo" class="logo" />
       <ul class="first">
         <li><nuxt-link to="/"><h1><span>{{ title }}</span></h1></nuxt-link></li>
         <li v-for="(item, index) of firstLevelNavItems" :key="index">
           <ul v-if="item.submenu.length > 0" class="second">
             <li><span>&nbsp;</span></li>
-            <li v-for="(subitem, index) of item.submenu" :key="index">
+            <li v-for="(subitem, subindex) of item.submenu" :key="index*100 + subindex">
               <nuxt-link :to="subitem.href">
                 <span>{{ subitem.name }}</span>
               </nuxt-link>
@@ -17,7 +18,7 @@
           </nuxt-link>
           <span v-else class="no-link">{{ item.name }}</span>
         </li>
-        <li v-for="(item, index) of socialMediaNavItems" :key="index" class="social-media">
+        <li v-for="(item, index) of socialMediaNavItems" :key="firstLevelNavItems.length + index" class="social-media">
           <a :href="item.href" target="_blank"><i :class="item.icon"></i></a>
         </li>
       </ul>
@@ -26,9 +27,12 @@
 </template>
 
 <script>
-
 export default {
   name: 'Header',
+  components: {
+    PrismicImage: () => import('./prismic-image.vue')
+  },
+
   computed: {
     header () {
       return this.$store.getters.header
@@ -86,6 +90,10 @@ export default {
 }
 
 nav {
+  .logo {
+    max-width: 77px;
+    float: left;
+  }
   a, a:visited {
     color: $blue-on-yellow;
   }

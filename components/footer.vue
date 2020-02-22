@@ -43,7 +43,6 @@ export default {
         this.$store.getters.page(slice.page.uid).title[0].text
     },
     classNames (icon) {
-      console.log('icon', icon)
       return {
         facebook: ['fab', 'fa-facebook-f'],
         instagram: ['fab', 'fa-instagram']
