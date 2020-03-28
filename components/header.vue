@@ -90,23 +90,24 @@ export default {
 }
 
 nav {
+  background-color: $white;
   .logo {
     max-width: 77px;
     float: left;
   }
   a, a:visited {
-    color: $blue-on-yellow;
+    color: $blue;
   }
   ul {
     margin: 0;
-    background-color: $yellow;
+    background-color: $white;
     &.first {
       padding: 2vw 4vw;
       display: flex;
       span {
         z-index: 2;
         position: relative;
-        background-color: $yellow;
+        background-color: $white;
         margin: 1vw 4vw 1vw 1vw;
       }
     }
@@ -126,7 +127,7 @@ nav {
   }
 
   li {
-    background-color: $yellow;
+    background-color: $white;
     display: block;
     position: relative;
     text-transform: uppercase;

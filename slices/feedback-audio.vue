@@ -1,9 +1,11 @@
 <template>
   <div class="container">
-    <audio controls v-for="(item, index) in items">
-      <source :src="item.audio.url" type="audio/mpeg">
-    Your browser does not support the audio element or sound format.
-    </audio>
+    <div class="audio-player" v-for="(item, index) in items">
+      <audio controls>
+        <source :src="item.audio.url" type="audio/mpeg">
+      Your browser does not support the audio element or sound format.
+      </audio>
+    </div>
   </div>
 </template>
 
@@ -20,10 +22,13 @@ export default {
       required: true
     }
   }
-
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/style/_imports';
+
+.audio-player {
+  margin-top: 10px;
+}
 </style>

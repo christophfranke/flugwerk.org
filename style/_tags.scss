@@ -3,9 +3,10 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Avenir", sans serif;
-  font-size: 24px;
+  font-family: "Courier New", monospace;
+  font-size: 20px;
   color: $black;
+  background-color: $yellow;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,6 +18,11 @@ h2 {
   color: $blue;
 }
 
+p {
+  text-align: justify;
+}
+
 a {
   text-decoration: none;
+  color: $blue;
 }

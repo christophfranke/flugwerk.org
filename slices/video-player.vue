@@ -44,15 +44,14 @@ video {
   text-transform: uppercase;
   position: absolute;
   bottom: 10vw;
-  right: 10vw;
-  background-color: rgba($yellow, 0.6);
+  right: 8.7vw;
 
-  h1 {
-    font-size: 140px;
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 8vw;
     letter-spacing: 40px;
     padding: 0 0 0 40px;
     font-family: 'Headline One';
-    color: $blue-on-yellow;
+    color: $yellow;
     font-weight: 400;
     margin: 0;    
   }
