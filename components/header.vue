@@ -1,15 +1,16 @@
 <template>
   <header v-if="header">
+    <div class="left">
+      <nuxt-link to="/"><h1 class="title">{{ title }}</h1></nuxt-link>
+    </div>
     <nav>
-      <PrismicImage :image="header.data.logo" class="logo" />
       <ul class="first">
-        <li><nuxt-link to="/"><h1><span>{{ title }}</span></h1></nuxt-link></li>
         <li v-for="(item, index) of firstLevelNavItems" :key="index">
           <ul v-if="item.submenu.length > 0" class="second">
             <li><span>&nbsp;</span></li>
             <li v-for="(subitem, subindex) of item.submenu" :key="index*100 + subindex">
               <nuxt-link :to="subitem.href">
-                <span>{{ subitem.name }}</span>
+                <span class="submenu-item">{{ subitem.name }}</span>
               </nuxt-link>
             </li>
           </ul>
@@ -89,37 +90,57 @@ export default {
   cursor: default;
 }
 
+.logo {
+  display: none;
+  max-width: 77px;
+  display: inline-block;
+}
+
+.left {
+  float: left;
+  padding: 30px;
+}
+
+.title, .title:visited {
+  display: inline;
+  fontSize: 80px;
+  color: $black;
+}
+
 nav {
-  background-color: $white;
-  .logo {
-    max-width: 77px;
-    float: left;
-  }
+  background-color: $yellow;
   a, a:visited {
-    color: $blue;
+    color: $black;
   }
   ul {
     margin: 0;
-    background-color: $white;
+    background-color: $yellow;
     &.first {
       padding: 2vw 4vw;
       display: flex;
+      justify-content: center;
       span {
         z-index: 2;
         position: relative;
-        background-color: $white;
+        background-color: $yellow;
         margin: 1vw 4vw 1vw 1vw;
       }
     }
     &.second {
+      border: 7px solid $black;
       padding: 0;
-      transition: opacity .3s, transform .3s ease-out;
+      transition: opacity .3s;
       display: block;
       position: absolute;
       opacity: 0;
-      transform: translateY(-50%);
       z-index: 1;
     }
+  }
+
+  .submenu-item {
+    margin: 6px 0;
+    display: inline-block;
+    white-space: nowrap;
   }
 
   h1 {
@@ -127,7 +148,7 @@ nav {
   }
 
   li {
-    background-color: $white;
+    background-color: $yellow;
     display: block;
     position: relative;
     text-transform: uppercase;

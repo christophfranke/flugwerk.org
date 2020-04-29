@@ -57,7 +57,7 @@ export default {
 
 footer {
   margin-top: 50px;
-  background-color: $white;
+  background-color: $yellow;
   color: $black;
   padding: 20px 20px 50px 20px;
 }
