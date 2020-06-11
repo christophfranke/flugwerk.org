@@ -8,9 +8,9 @@
         <li v-for="(item, index) of firstLevelNavItems" :key="index">
           <ul v-if="item.submenu.length > 0" class="second">
             <li><span>&nbsp;</span></li>
-            <li v-for="(subitem, subindex) of item.submenu" :key="index*100 + subindex">
+            <li v-for="(subitem, subindex) of item.submenu" :key="index*100 + subindex" class="submenu-item">
               <nuxt-link :to="subitem.href">
-                <span class="submenu-item">{{ subitem.name }}</span>
+                <span>{{ subitem.name }}</span>
               </nuxt-link>
             </li>
           </ul>
@@ -138,8 +138,7 @@ nav {
   }
 
   .submenu-item {
-    margin: 6px 0;
-    display: inline-block;
+    padding: 8px 0;
     white-space: nowrap;
   }
 
