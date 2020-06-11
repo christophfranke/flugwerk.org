@@ -7,6 +7,7 @@ const slicesMap = {
   feedback_audio: Slices.FeedbackAudio,
   calendar: Slices.Calendar,
   team: Slices.Team,
+  network: Slices.Network,
   image: Slices.FullImage,
   foto_carousel: Slices.FotoCarousel,
   spacer: Slices.Spacer
