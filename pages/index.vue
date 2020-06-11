@@ -2,13 +2,7 @@
   <div class="main">
     <div class="transformed-text flug">Flug</div>
     <div class="transformed-text werk">werk</div>
-    <template v-for="(slice, index) in slices">
-      <div class="spacer1" v-if="index === 1" />
-      <div class="spacer2" v-if="index === 2" />
-      <div class="spacer3" v-if="index === 3" />
-      <div class="spacer4" v-if="index === 4" />
-      <Slice :slice="slice" :key="index" />
-    </template>
+    <Slice :slice="slice" :key="index" v-for="(slice, index) in slices" />
   </div>
 </template>
 
