@@ -38,22 +38,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.spacer1 {
-  padding-top: 10vw;
-}
-
-.spacer2 {
-  padding-top: 10vw;
-}
-
-.spacer3 {
-  padding-top: 3vw;
-}
-
-.spacer4 {
-  padding-top: 8vw;
-}
-
 .transformed-text {
   position: absolute;
   left: 0;

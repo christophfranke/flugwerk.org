@@ -15,7 +15,6 @@ import components from '~/components'
 export default {
   name: 'FeedbackText',
   components,
-  components,
   props: {
     items: {
       type: Array,

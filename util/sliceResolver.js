@@ -8,7 +8,8 @@ const slicesMap = {
   calendar: Slices.Calendar,
   team: Slices.Team,
   image: Slices.FullImage,
-  foto_carousel: Slices.FotoCarousel
+  foto_carousel: Slices.FotoCarousel,
+  spacer: Slices.Spacer
 }
 
 export default slice => slicesMap[slice.slice_type]

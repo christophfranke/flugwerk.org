@@ -6,5 +6,6 @@ export default {
   Calendar: () => import('./calendar.vue'),
   Team: () => import('./team.vue'),
   FullImage: () => import('./full-image.vue'),
-  FotoCarousel: () => import('./foto-carousel.vue')
+  FotoCarousel: () => import('./foto-carousel.vue'),
+  Spacer: () => import('./spacer.vue')
 }
