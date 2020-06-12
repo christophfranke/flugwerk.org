@@ -21,10 +21,6 @@ export default {
         'height': `${this.primary.distance}${this.primary.unit}`
       }
     }
-  },
-
-  mounted() {
-    console.log('spacer found', this.primary);
   }
 }
 </script>
@@ -32,6 +28,5 @@ export default {
 <style lang="scss" scoped>
 .spacer {
   width: 100%;
-  // background-color: pink;
 }
 </style>
