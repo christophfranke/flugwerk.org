@@ -144,7 +144,9 @@ export default {
 }
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s;
+  z-index: 1;
+  position: absolute;
+  transition: opacity .5s;
 }
 
 .fade-enter, .fade-leave-to {
