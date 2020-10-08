@@ -1,13 +1,13 @@
 <template>
   <div class="main">
     <div class="month">
-      <h3>April</h3>
+      <h3>Veranstaltungen</h3>
     </div>
     <div class="events">
       <div v-for="(event, i) of events" :key="i" class="event" @click="open(event)">
+        <Time :time="event.time" />
         <PrismicImage :image="event.image" />
         <RichText :content="event.title" />
-        <Time :time="event.time" />
       </div>
     </div>
 
@@ -17,8 +17,8 @@
           <div class="content" @click.stop>
             <img src="/close.svg" @click="close" class="close-icon" />
             <RichText :content="event.title" />
-            <PrismicImage :image="event.image" />
             <Time :time="event.time" />
+            <PrismicImage :image="event.image" />
             <RichText :content="event.content" />
           </div>
         </div>
@@ -113,6 +113,10 @@ export default {
       opacity: 1;
     }
   }
+
+  img {
+    margin-top: 5px;
+  }
 }
 
 .month {
@@ -125,12 +129,18 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin: 0 -25px;
 }
 
 .event {
-  width: calc(30vw - 20px);
-  padding: 10px;
+  width: calc(30vw - 40px);
+  margin: 0 25px;
   cursor: pointer;
+
+  img {
+    margin-top: 10px;
+    width: 100%;
+  }
 }
 
 .fade-enter-active, .fade-leave-active {
