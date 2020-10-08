@@ -24,6 +24,7 @@
         </li>
       </ul>
     </nav>
+    <div class="clear" />
   </header>
 </template>
 
@@ -99,6 +100,10 @@ export default {
 .left {
   float: left;
   padding: 30px;
+}
+
+.clear {
+  clear: both;
 }
 
 .title, .title:visited {
