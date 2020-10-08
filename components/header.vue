@@ -15,7 +15,7 @@
             </li>
           </ul>
           <nuxt-link :to="item.href" v-if="item.href">
-            <span>{{ item.name }}</span>
+            <span class="link">{{ item.name }}</span>
           </nuxt-link>
           <span v-else class="no-link">{{ item.name }}</span>
         </li>
@@ -130,6 +130,10 @@ nav {
         background-color: $yellow;
         margin: 1vw 4vw 1vw 1vw;
       }
+
+      .link:hover {
+        font-weight: bold;
+      }
     }
     &.second {
       border: 7px solid $black;
@@ -145,6 +149,10 @@ nav {
   .submenu-item {
     padding: 8px 0;
     white-space: nowrap;
+
+    &:hover {
+      font-weight: bold;
+    }
   }
 
   h1 {

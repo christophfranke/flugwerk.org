@@ -37,4 +37,7 @@ export default {
 button.VueCarousel-navigation-button {
   transform: scale(3.5) translateY(-14%) !important;
 }
+button.VueCarousel-navigation-button:focus {
+  outline: none !important;
+}
 </style>
