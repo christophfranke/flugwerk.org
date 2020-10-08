@@ -1,6 +1,8 @@
 <template>
   <div class="main">
-    <div>April</div>
+    <div class="month">
+      <h3>April</h3>
+    </div>
     <div class="events">
       <div v-for="(event, i) of events" :key="i" class="event" @click="open(event)">
         <PrismicImage :image="event.image" />
@@ -8,6 +10,7 @@
         <Time :time="event.time" />
       </div>
     </div>
+
     <transition name="fade">
       <div class="modal" v-if="event">
         <div class="backdrop" @click="close">
@@ -21,6 +24,7 @@
         </div>
       </div>
     </transition>
+
     <client-only v-if="false">
       <carousel :per-page="3" :navigation-enabled="true" :pagination-enabled="false" :adjustable-height="true">
         <slide v-for="(event, i) of events" :key="i" class="slide">
@@ -70,11 +74,7 @@ export default {
   }
 }
 </script>
-<style>
-.modal .content h1 {
-  /*margin-top: 0;*/
-}
-</style>
+
 <style lang="scss" scoped>
 @import '@/style/_imports';
 
@@ -94,6 +94,7 @@ export default {
 
   .content {
     background-color: white;
+    min-width: 500px;
     padding: 25px;
     margin-top: -10vh;
     position: relative;
@@ -111,6 +112,12 @@ export default {
     &:hover {
       opacity: 1;
     }
+  }
+}
+
+.month {
+  h3 {
+    font-size: 36px;
   }
 }
 
