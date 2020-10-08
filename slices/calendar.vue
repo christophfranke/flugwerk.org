@@ -2,21 +2,32 @@
   <div class="main">
     <div>April</div>
     <div class="events">
-      <div v-for="(event, i) of events" :key="i" class="event">
-        <nuxt-link :to="event.url"><PrismicImage :image="event.image" /></nuxt-link>
-        <nuxt-link :to="event.url"><RichText :content="event.title" /></nuxt-link>
-        <nuxt-link :to="event.url"><Time :time="event.time" /></nuxt-link>
+      <div v-for="(event, i) of events" :key="i" class="event" @click="open(event)">
+        <PrismicImage :image="event.image" />
+        <RichText :content="event.title" />
+        <Time :time="event.time" />
       </div>
     </div>
+    <transition name="fade">
+      <div class="modal" v-if="event">
+        <div class="backdrop" @click="close">
+          <div class="content" @click.stop>
+            <img src="/close.svg" @click="close" class="close-icon" />
+            <RichText :content="event.title" />
+            <PrismicImage :image="event.image" />
+            <Time :time="event.time" />
+            <RichText :content="event.content" />
+          </div>
+        </div>
+      </div>
+    </transition>
     <client-only v-if="false">
       <carousel :per-page="3" :navigation-enabled="true" :pagination-enabled="false" :adjustable-height="true">
         <slide v-for="(event, i) of events" :key="i" class="slide">
-          <div>
-            <nuxt-link :to="event.url"><RichText :content="event.title" /></nuxt-link>
-            <nuxt-link :to="event.url"><PrismicImage :image="event.image" /></nuxt-link>
-            <nuxt-link :to="event.url"><Time :time="event.time" /></nuxt-link>
-            <RichText :content="event.content" />
-            <nuxt-link :to="event.url">mehr</nuxt-link>
+          <div @click="open(event)">
+            <PrismicImage :image="event.image" />
+            <RichText :content="event.title" />
+            <Time :time="event.time" />
           </div>
         </slide>
       </carousel>
@@ -32,6 +43,12 @@ export default {
   name: 'Calendar',
   components,
 
+  data() {
+    return {
+      event: null
+    }
+  },
+
   computed: {
     events () {
       return this.$store.getters.events
@@ -40,12 +57,62 @@ export default {
           url: linkResolver(event)
         }))
     }
+  },
+
+  methods: {
+    open(event) {
+      this.event = event
+    },
+
+    close() {
+      this.event = null
+    }
   }
 }
 </script>
-
+<style>
+.modal .content h1 {
+  /*margin-top: 0;*/
+}
+</style>
 <style lang="scss" scoped>
 @import '@/style/_imports';
+
+.modal {
+  .backdrop {
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content {
+    background-color: white;
+    padding: 25px;
+    margin-top: -10vh;
+    position: relative;
+  }
+
+  .close-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
 
 .events {
   display: flex;
@@ -54,15 +121,22 @@ export default {
 }
 
 .event {
-  width: calc(33% - 20px);
+  width: calc(30vw - 20px);
   padding: 10px;
+  cursor: pointer;
 }
-// .main {
-//   width: 80vw;
-//   margin: 0 auto;
-// }
 
-// .slide {
-//   width: 33%;
-// }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.main {
+  width: 90vw;
+  margin: 0 auto;
+}
+
 </style>
