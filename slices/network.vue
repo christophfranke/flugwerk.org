@@ -28,7 +28,7 @@ export default {
   computed: {
     profiles () {
       return this.items.map(item => ({
-        name: item.name[0] && item.name[0].text.replace(/ /g, '&nbsp;'),
+        name: item.name[0] && item.name[0].text,
         image: item.image,
         url: item.link.url
       }))
@@ -42,21 +42,22 @@ export default {
 ul {
   padding: 0 15px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+  grid-template-columns: repeat(2, 1fr);
   @media (min-width: 600px) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   @media (min-width: 1000px) {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
 li {
   list-style-type: none;
-  padding: 25px;
-  margin: 0 15px;
+  padding: 15px;
   border: 1px solid $blue
 }
+
 
 .image {
   width: 100%;
@@ -66,7 +67,6 @@ li {
 .name {
   color: $black;
   width: 100%;
-  margin: 10px 0 0 0;
-  height: 20px;
+  margin: 0;
 }
 </style>
