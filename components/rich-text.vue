@@ -33,7 +33,12 @@
       if (window) {
         window.goto = element => {
           if (element.rel !== 'noopener') {
-            this.$router.push(element.getAttribute('href'))
+            const href = element.getAttribute('href')
+            if (href.match(/^https?:\/\//)) {
+              return true
+            }
+
+            this.$router.push(href)
             return false
           }
         }
