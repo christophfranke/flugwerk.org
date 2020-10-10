@@ -65,6 +65,13 @@ li {
 }
 
 .name {
+  [href] & {
+    text-decoration: underline;
+    &:hover {
+      color: $blue;
+    }
+  }
+
   color: $black;
   width: 100%;
   margin: 0;
