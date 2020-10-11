@@ -1,10 +1,9 @@
 <template>
-  <div class="container">
-    <div class="audio-player" v-for="(item, index) in items">
-      <audio controls>
-        <source :src="item.audio.url" type="audio/mpeg">
-      Your browser does not support the audio element or sound format.
-      </audio>
+  <div>
+    <div class="audio-player" v-for="(url, index) in audioUrls">
+      <client-only>
+        <mini-audio :audio-source="url" :html5="true" :width="400" />
+      </client-only>
     </div>
   </div>
 </template>
@@ -20,6 +19,14 @@ export default {
       type: Array,
       required: true
     }
+  },
+
+  computed: {
+    audioUrls() {
+      return this.items
+        .filter(item => item.audio && item.audio.url)
+        .map(item => item.audio && item.audio.url)
+    }
   }
 }
 </script>
@@ -28,6 +35,8 @@ export default {
 @import '@/style/_imports';
 
 .audio-player {
-  margin-top: 10px;
+  width: 95vw;
+  margin: 10px auto 0 auto;
 }
+
 </style>

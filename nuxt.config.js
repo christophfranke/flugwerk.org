@@ -1,7 +1,7 @@
 import routes from './util/routes.js'
 
 export default {
-  plugins: [{ src: 'plugins/vue-carousel', ssr: false }],
+  plugins: [{ src: 'plugins/client-only', ssr: false }],
   generate: {
     routes() {
       return routes()

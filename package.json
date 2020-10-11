@@ -16,6 +16,7 @@
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.1.5",
     "sass-loader": "^8.0.2",
+    "vue-audio-better": "^3.0.1",
     "vue-carousel": "^0.18.0"
   }
 }
