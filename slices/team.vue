@@ -4,7 +4,7 @@
       <li v-for="profile in profiles" :key="profile.name">
         <h3>{{ profile.name }}</h3>
         <PrismicImage :image="profile.image" class="image" />
-        <RichText :content="profile.description" />
+        <RichText :content="profile.description" className="team-card" />
       </li>
     </ul>
   </div>
@@ -36,19 +36,35 @@ export default {
 }
 </script>
 
+<style lang="scss">
+.team-card {
+  p {
+    text-align: left;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+</style>
+
 <style lang="scss" scoped>
 @import '@/style/_imports';
 ul {
+  width: 95vw;
+  margin: 0 auto;
   padding: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 li {
   list-style-type: none;
-  padding: 25px;
-  margin: 0 25px;
-  border: 1px solid $blue
+  padding: 15px;
+  border: 1px solid $blue;
+
+  h3 {
+    margin-top: 0;
+  }
 }
 
 .image {
