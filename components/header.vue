@@ -174,6 +174,15 @@ nav {
     margin-left: 2vw;
     position: relative;
     z-index: 2;
+    i {
+      padding: 5px;
+      margin: -5px;
+      border-radius: 5px;    
+      &:hover {
+        color: $yellow;
+        background-color: $black;
+      }
+    }
   }
 }
 </style>

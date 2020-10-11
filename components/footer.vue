@@ -1,6 +1,7 @@
 <template>
   <footer>
-    <RichText :content="address" />
+    <hr />
+    <RichText :content="address" className="footer-address" />
     <ul>
       <li v-for="slice in slices" :key="">
         <nuxt-link :to="slice.href" v-if="slice.type === 'menu_entry'">
@@ -52,6 +53,12 @@ export default {
 }
 </script>
 
+<style lang="scss">
+.footer-address p {
+  text-align: center;
+}
+</style>
+
 <style lang="scss" scoped>
 @import '@/style/_imports';
 
@@ -60,6 +67,10 @@ footer {
   background-color: $yellow;
   color: $black;
   padding: 20px 20px 50px 20px;
+}
+
+hr {
+  border: 1px solid $black;
 }
 
 ul {
@@ -76,5 +87,8 @@ li {
 
 a {
   color: $blue-on-yellow;
+  &:hover {
+    color: $black;
+  }
 }
 </style>
