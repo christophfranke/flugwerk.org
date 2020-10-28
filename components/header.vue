@@ -1,6 +1,7 @@
 <template>
   <header v-if="header">
     <div class="left">
+      <img src="/flieger.png" class="logo" />
       <nuxt-link to="/"><h1 class="title">{{ title }}</h1></nuxt-link>
     </div>
     <nav>
@@ -92,9 +93,14 @@ export default {
 }
 
 .logo {
-  display: none;
-  max-width: 77px;
-  display: inline-block;
+  position: absolute;
+  top: 0.5vw;
+  left: 1.5vw;
+  width: 20vw;
+  height: 20vw;
+  max-width: 200px;
+  max-height: 200px;
+
 }
 
 .left {
