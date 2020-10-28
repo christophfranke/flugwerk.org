@@ -40,8 +40,6 @@ export default {
 .team-card {
   p {
     text-align: left;
-    font-size: 16px;
-    line-height: 24px;
   }
 }
 </style>
@@ -54,12 +52,12 @@ ul {
   padding: 0;
   display: grid;
   grid-gap: 15px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 li {
   list-style-type: none;
-  padding: 15px;
+  padding: 25px;
   border: 1px solid $blue;
 
   h3 {
