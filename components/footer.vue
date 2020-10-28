@@ -7,7 +7,7 @@
         <nuxt-link :to="slice.href" v-if="slice.type === 'menu_entry'">
           {{ linkName(slice) }}
         </nuxt-link>
-        <a :href="slice.href" target="_blank" v-else>
+        <a :href="slice.href" class="icon" target="_blank" v-else>
           <i :class="classNames(slice.icon)"></i>
         </a>
       </li>
@@ -46,7 +46,7 @@ export default {
     classNames (icon) {
       return {
         facebook: ['fab', 'fa-facebook-f'],
-        instagram: ['fab', 'fa-instagram']
+        instagram: ['fab', 'fa-instagram'],
       }[icon.toLowerCase()]
     }
   }
@@ -64,13 +64,14 @@ export default {
 
 footer {
   margin-top: 50px;
-  background-color: $yellow;
-  color: $black;
+  background-color: $black;
+  color: $yellow;
   padding: 20px 20px 50px 20px;
 }
 
 hr {
   border: 1px solid $black;
+  display: none;
 }
 
 ul {
@@ -86,9 +87,23 @@ li {
 }
 
 a {
-  color: $blue-on-yellow;
+  color: $yellow;
   &:hover {
-    color: $black;
+    font-weight: bold;
   }
+
+  &.icon {
+    height: 20px;
+    display: block;
+    padding: 4px;
+    margin: -4px;
+    border-radius: 4px;
+
+    &:hover {
+      color: black;
+      background-color: $yellow;
+    }
+  }
+
 }
 </style>
