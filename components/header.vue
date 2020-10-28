@@ -112,7 +112,17 @@ export default {
   color: $black;
 }
 
+header {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background-color: $yellow;
   a, a:visited {
     color: $black;
