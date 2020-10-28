@@ -47,8 +47,8 @@ video {
   right: 8.7vw;
 
   h1, h2, h3, h4, h5, h6 {
-    font-size: 8vw;
-    letter-spacing: 40px;
+    font-size: 6vw;
+    letter-spacing: 15px;
     padding: 0 0 0 40px;
     font-family: 'Headline One';
     color: $yellow;

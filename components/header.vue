@@ -93,6 +93,7 @@ export default {
 }
 
 .logo {
+  pointer-events: none;
   position: absolute;
   top: 0.5vw;
   left: 1.5vw;
@@ -100,6 +101,7 @@ export default {
   height: 20vw;
   max-width: 200px;
   max-height: 200px;
+  z-index: 1;
 
 }
 
