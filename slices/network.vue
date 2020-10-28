@@ -55,7 +55,7 @@ ul {
 li {
   list-style-type: none;
   padding: 15px;
-  border: 1px solid $blue
+  border: 7px solid $black
 }
 
 

@@ -1,6 +1,7 @@
 <template>
-  <div class="time">
+  <div class="date-time">
     <span>{{ dateString }}</span>
+    <span class="seperator">&middot;</span>
     <span>{{ timeString }}</span>
   </div>
 </template>
@@ -41,8 +42,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.time {
+.date-time {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+
+.seperator {
+  margin: 0 10px;
 }
 </style>

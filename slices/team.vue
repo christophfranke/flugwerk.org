@@ -58,7 +58,7 @@ ul {
 li {
   list-style-type: none;
   padding: 25px;
-  border: 1px solid $blue;
+  border: 7px solid $black;
 
   h3 {
     margin-top: 0;

@@ -18,7 +18,7 @@
             <img src="/close.svg" @click="close" class="close-icon" />
             <RichText :content="event.title" />
             <Time :time="event.time" />
-            <PrismicImage :image="event.image" />
+            <PrismicImage :image="event.image.Modal" />
             <RichText :content="event.content" />
           </div>
         </div>
@@ -66,6 +66,7 @@ export default {
   methods: {
     open(event) {
       this.event = event
+      console.log(event.image)
     },
 
     close() {
@@ -96,7 +97,6 @@ export default {
     background-color: white;
     min-width: 500px;
     padding: 25px;
-    margin-top: -10vh;
     position: relative;
   }
 

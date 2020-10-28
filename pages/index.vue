@@ -45,15 +45,15 @@ export default {
   font-family: 'Headline One', sans serif;
 
   &.flug {
-    top: 62vw;
-    left: 2.6vw;
+    top: 79vw;
+    left: 7.1vw;
+    transform: rotate(270deg);
   }
 
   &.werk {
     left: auto;
-    top: 75vw;
-    right: 5.2vw;
-    transform: rotate(90deg);
+    top: 62vw;
+    left: 9.7vw;
   }
 }
 </style>
