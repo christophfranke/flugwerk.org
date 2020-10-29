@@ -14,12 +14,14 @@
     <transition name="fade">
       <div class="modal" v-if="event">
         <div class="backdrop" @click="close">
-          <div class="content" @click.stop>
-            <img src="/close.svg" @click="close" class="close-icon" />
-            <RichText :content="event.title" />
-            <Time :time="event.time" />
-            <PrismicImage :image="event.image.Modal" />
-            <RichText :content="event.content" />
+          <div class="scroller">
+            <div class="content" @click.stop>
+              <img src="/close.svg" @click="close" class="close-icon" />
+              <RichText :content="event.title" />
+              <Time :time="event.time" />
+              <PrismicImage :image="event.image.Modal" />
+              <RichText :content="event.content" />
+            </div>
           </div>
         </div>
       </div>
@@ -91,12 +93,20 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2vw;
+  }
+
+  .scroller {
+    height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .content {
+    padding: 25px;
     background-color: white;
     min-width: 500px;
-    padding: 25px;
+    max-width: 1050px;
     position: relative;
   }
 
@@ -115,6 +125,7 @@ export default {
   }
 
   img {
+    width: 100%;
     margin-top: 5px;
   }
 }
