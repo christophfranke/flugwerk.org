@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <client-only>
-      <carousel :per-page="1" :navigation-enabled="true" :pagination-enabled="false" :adjustable-height="true">
+      <carousel :per-page="1" :navigation-enabled="true" :pagination-enabled="false" :adjustable-height="true" :loop="true">
         <slide v-for="(item, index) in items" :key="index">
           <RichText :content="item.text" class="content" />
         </slide>
@@ -30,6 +30,7 @@ export default {
 
 .content {
   padding: 0 75px;
+  width: calc(50vw - 150px);
 }
 </style>
 

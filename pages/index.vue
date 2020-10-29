@@ -38,6 +38,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.main {
+  position: relative;
+}
+
 .transformed-text {
   position: absolute;
   left: 0;
@@ -45,7 +49,7 @@ export default {
   font-family: 'Headline One', sans serif;
 
   &.flug {
-    top: 79vw;
+    top: 73vw;
     left: 7.1vw;
     transform: rotate(270deg);
   }
@@ -53,6 +57,7 @@ export default {
   &.werk {
     left: auto;
     top: 62vw;
+    top: 56vw;
     left: 9.7vw;
   }
 }

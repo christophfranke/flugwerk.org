@@ -1,7 +1,7 @@
 <template>
   <div class="carousel">
     <client-only>
-      <carousel :per-page="primary.images_per_page || 1" :navigation-enabled="true" :pagination-enabled="false" :adjustable-height="false">
+      <carousel :per-page="primary.images_per_page || 1" :navigation-enabled="true" :pagination-enabled="false" :adjustable-height="false" :loop="true">
         <slide v-for="(item, index) in items" :key="index">
           <div class="slide">
             <PrismicImage :image="item.image" class="image" />
