@@ -1,13 +1,11 @@
 <template>
   <div class="main">
-    <div class="month">
-      <h3>Veranstaltungen</h3>
-    </div>
+    <h3 class="coming-up">Coming Up</h3>
     <div class="events">
       <div v-for="(event, i) of events" :key="i" class="event" @click="open(event)">
-        <Time :time="event.time" />
         <PrismicImage :image="event.image" />
-        <RichText :content="event.title" />
+        <RichText :content="event.title" className="event-title" />
+        <Time :time="event.time" />
       </div>
     </div>
 
@@ -78,6 +76,14 @@ export default {
 }
 </script>
 
+<style lang="scss">
+.cms-content.event-title {
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+}
+</style>
+
 <style lang="scss" scoped>
 @import '@/style/_imports';
 
@@ -93,7 +99,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2vw;
+    padding: 6vw;
   }
 
   .scroller {
@@ -149,7 +155,6 @@ export default {
   cursor: pointer;
 
   img {
-    margin-top: 10px;
     width: 100%;
   }
 }
@@ -167,6 +172,14 @@ export default {
 .main {
   width: 90vw;
   margin: 0 auto;
+}
+
+.coming-up {
+  font-family: 'Headline One', sans serif;
+  font-weight: normal;
+  margin: 0;  
+  margin-left: 7.1vw;
+  font-size: 15vw;
 }
 
 </style>
