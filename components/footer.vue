@@ -1,5 +1,10 @@
 <template>
   <footer>
+    <img src="/newsletter/title.png" class="newsletter-title" />
+    <form class="form">
+      <input v-model="input" type="text" class="input" placeholder="Email Adresse">
+      <button type="button" class="button">Anmelden</button>
+    </form>
     <hr />
     <RichText :content="address" className="footer-address" />
     <ul>
@@ -22,6 +27,12 @@ import linkResolver from '@/util/linkResolver'
 export default {
   name: 'Footer',
   components,
+
+  data () {
+    return {
+      input: ''
+    }
+  },
 
   computed: {
     slices () {
@@ -62,6 +73,47 @@ export default {
 <style lang="scss" scoped>
 @import '@/style/_imports';
 
+.form {
+  text-align: center;
+}
+
+
+.newsletter-title {
+  max-width: 100vw;
+  margin-bottom: -3vw;
+}
+
+.input {
+  font-family: 'Courier New';
+  width: 300px;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 4px 8px;
+  background-color: $yellow;
+  border: none;
+  outline: none;
+
+  &::placeholder {
+    font-style: italic;
+    color: $blue;
+  }
+}
+
+.button {
+  border: 1px solid $blue;
+  cursor: pointer;
+  border: none;
+  color: transparent;
+  background-color: $yellow;
+  background-image: url(/newsletter/button.png);
+  background-size: contain;
+  width: 100px;
+  height: 30px;
+  transform: translateY(-2px);
+  overflow: hidden;
+
+}
+
 footer {
   margin-top: 50px;
   background-color: $black;
@@ -70,8 +122,8 @@ footer {
 }
 
 hr {
-  border: 1px solid $black;
-  display: none;
+  margin-top: 80px;
+  border: none;
 }
 
 ul {
