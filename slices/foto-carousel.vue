@@ -32,7 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 .carousel {
-  width: 95vw;
+  width: 80vw;
   margin: 0 auto;
 }
 .slide {

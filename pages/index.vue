@@ -56,7 +56,6 @@ export default {
 
   &.werk {
     left: auto;
-    top: 62vw;
     top: 56vw;
     left: 9.7vw;
   }

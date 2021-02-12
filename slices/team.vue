@@ -61,6 +61,7 @@ li {
   border: 7px solid $black;
 
   h3 {
+    font-size: 40px;
     margin-top: 0;
   }
 }
