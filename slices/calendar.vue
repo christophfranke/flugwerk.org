@@ -11,14 +11,17 @@
     <transition name="fade">
       <div class="modal" v-if="event">
         <div class="backdrop" @click="close">
-          <div class="scroller">
-            <div class="content" @click.stop>
-              <img src="/close.svg" @click="close" class="close-icon" />
-              <RichText :content="event.title" />
-              <Time :time="event.time" />
-              <PrismicImage :image="event.image.Modal" />
-              <RichText :content="event.content" />
+          <div class="wrapper">
+            <div class="scroller">
+              <div class="content" @click.stop>
+                <img src="/close.svg" @click="close" class="close-icon" />
+                <RichText :content="event.title" />
+                <Time :time="event.time" />
+                <PrismicImage :image="event.image.Modal" />
+                <RichText :content="event.content" />
+              </div>
             </div>
+            <div class="fader" />
           </div>
         </div>
       </div>
@@ -102,10 +105,24 @@ export default {
     padding: 6vw;
   }
 
+  .wrapper {
+    height: 100%;
+    position: relative;
+  }
+
   .scroller {
     height: 100%;
     overflow-y: auto;
     overscroll-behavior: contain;
+  }
+
+  .fader {
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
   }
 
   .content {
@@ -162,7 +179,7 @@ export default {
 .fade-enter-active, .fade-leave-active {
   z-index: 1;
   position: absolute;
-  transition: opacity .5s;
+  transition: opacity .2s;
 }
 
 .fade-enter, .fade-leave-to {
