@@ -1,0 +1,1 @@
+export default prismicText => prismicText && prismicText[0] && prismicText[0].text || ''

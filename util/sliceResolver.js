@@ -10,7 +10,9 @@ const slicesMap = {
   network: Slices.Network,
   image: Slices.FullImage,
   foto_carousel: Slices.FotoCarousel,
-  spacer: Slices.Spacer
+  spacer: Slices.Spacer,
+  archive: Slices.Archive,
+  headline: Slices.Headline
 }
 
 export default slice => slicesMap[slice.slice_type]

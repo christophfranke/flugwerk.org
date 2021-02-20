@@ -23,13 +23,17 @@ p {
   margin: 20px 0;
 }
 
-a {
+a, a:visited {
   text-decoration: none;
-  color: $blue;
-  &:hover {
-    color: $black
-  }
+  font-weight: bold;
+
+  color: $black
 }
+
+a:hover, a:active {
+  text-decoration: underline;
+}
+
 
 em {
   font-family: 'Headline One';

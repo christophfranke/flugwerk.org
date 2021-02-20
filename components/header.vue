@@ -133,7 +133,12 @@ nav {
 
   background-color: $yellow;
   a, a:visited {
+    font-weight: normal;
+  }
+  a:hover, a:active {
     color: $black;
+    text-decoration: none;
+    font-weight: bold;
   }
   ul {
     margin: 0;
@@ -149,9 +154,6 @@ nav {
         margin: 1vw 4vw 1vw 1vw;
       }
 
-      .link:hover {
-        font-weight: bold;
-      }
     }
     &.second {
       border: 7px solid $black;
