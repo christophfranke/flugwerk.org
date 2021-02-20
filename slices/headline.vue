@@ -53,6 +53,7 @@ export default {
 
 .main {
   position: relative;
+  margin-bottom: -3vw;
 }
 
 .vertical {
