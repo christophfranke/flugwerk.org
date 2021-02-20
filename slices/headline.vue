@@ -6,18 +6,14 @@
 </template>
 
 <script>
+import slice from '@/mixins/slice'
 import components from '@/components'
 import text from '@/util/text'
 
 export default {
   name: 'Headline',
   components,
-  props: {
-    primary: {
-      type: Object,
-      required: true
-    }
-  },
+  mixins: [slice],
 
   computed: {
     horizontalTitle() {
@@ -58,7 +54,9 @@ export default {
 
 .vertical {
   position: absolute;
-  top: 1vw;
-  transform: translateY(-50%) rotate(270deg) translateX(-50%);
+  display: inline;
+  top: 0;
+  left: 25vw;
+  transform: translateY(-47%) translateX(-50%) rotate(90deg) translateX(50%) translateY(50%) scale(-1);
 }
 </style>

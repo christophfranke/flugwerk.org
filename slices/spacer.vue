@@ -3,17 +3,13 @@
 </template>
 
 <script>
+import slice from '@/mixins/slice'
 import components from '@/components'
 
 export default {
   name: 'Spacer',
   components,
-  props: {
-    primary: {
-      type: Object,
-      required: true
-    }
-  },
+  mixins: [slice],
 
   computed: {
     style() {

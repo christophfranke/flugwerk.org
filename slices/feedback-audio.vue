@@ -9,17 +9,13 @@
 </template>
 
 <script>
+import slice from '@/mixins/slice'
 import components from '~/components'
 
 export default {
   name: 'FeedbackText',
   components,
-  props: {
-    items: {
-      type: Array,
-      required: true
-    }
-  },
+  mixins: [slice],
 
   computed: {
     audioUrls() {

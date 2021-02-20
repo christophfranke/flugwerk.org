@@ -1,7 +1,5 @@
 <template>
-  <div class="main">
-    <div class="transformed-text flug">Flug</div>
-    <div class="transformed-text werk">werk</div>
+  <div>
     <Slice :slice="slice" :key="index" v-for="(slice, index) in slices" />
   </div>
 </template>
@@ -36,28 +34,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.main {
-  position: relative;
-}
-
-.transformed-text {
-  position: absolute;
-  left: 0;
-  font-size: 15vw;
-  font-family: 'Headline One', sans serif;
-
-  &.flug {
-    top: 73vw;
-    left: 7.1vw;
-    transform: rotate(270deg);
-  }
-
-  &.werk {
-    left: auto;
-    top: 56vw;
-    left: 9.7vw;
-  }
-}
-</style>

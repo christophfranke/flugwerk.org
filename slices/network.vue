@@ -12,18 +12,14 @@
 </template>
 
 <script>
+import slice from '@/mixins/slice'
 import linkResolver from '@/util/linkResolver'
 import components from '@/components'
 
 export default {
   name: 'Team',
   components,
-  props: {
-    items: {
-      type: Array,
-      required: true
-    }
-  },
+  mixins: [slice],
 
   computed: {
     profiles () {

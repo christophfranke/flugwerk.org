@@ -3,20 +3,12 @@
 </template>
 
 <script>
+import slice from '@/mixins/slice'
 import components from '@/components'
 
 export default {
   name: 'Archive',
   components,
-  props: {
-    primary: {
-      type: Object,
-      required: true
-    },
-    items: {
-      type: Array,
-      required: true
-    }
-  },
+  mixins: [slice]
 }
 </script>

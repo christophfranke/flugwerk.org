@@ -1,6 +1,5 @@
 <template>
   <div class="main">
-    <h3 class="coming-up">Coming Up</h3>
     <div class="events">
       <div v-for="(event, i) of events" :key="i" class="event" @click="open(event)">
         <PrismicImage :image="event.image" />
@@ -40,12 +39,14 @@
 </template>
 
 <script>
+import slice from '@/mixins/slice'
 import linkResolver from '@/util/linkResolver'
 import components from '@/components'
 
 export default {
   name: 'Calendar',
   components,
+  mixins: [slice],
 
   data() {
     return {
@@ -66,7 +67,6 @@ export default {
   methods: {
     open(event) {
       this.event = event
-      console.log(event.image)
     },
 
     close() {
@@ -172,14 +172,6 @@ export default {
 .main {
   width: 90vw;
   margin: 0 auto;
-}
-
-.coming-up {
-  font-family: 'Headline One', sans serif;
-  font-weight: normal;
-  margin: 0;  
-  margin-left: 7.1vw;
-  font-size: 15vw;
 }
 
 </style>

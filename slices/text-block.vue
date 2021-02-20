@@ -5,17 +5,13 @@
 </template>
 
 <script>
+import slice from '@/mixins/slice'
 import components from '~/components'
 
 export default {
   name: 'TextBlock',
   components,
-  props: {
-    primary: {
-      type: Object,
-      required: true
-    }
-  },
+  mixins: [slice],
 
   computed: {
     text() {
