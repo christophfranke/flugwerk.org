@@ -48,7 +48,14 @@ ul {
   padding: 0;
   display: grid;
   grid-gap: 15px;
-  grid-template-columns: 1fr 1fr 1fr;
+
+  grid-template-columns: 1fr;
+  @include from(600px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include from(950px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 li {

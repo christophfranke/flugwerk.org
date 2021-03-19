@@ -1,6 +1,14 @@
 .container {
-  width: 50vw;
+  width: 95vw;
   margin: 0 auto;
+
+  @include from(500px) {
+    width: 80vw;
+  }
+
+  @include from(950px) {
+    width: 50vw;
+  }
 }
 
 .audio-player div.vueAudioBetter {
@@ -21,4 +29,11 @@
   border-radius: 0;
   background-image: none;
   background-color: white;
+}
+
+button.VueCarousel-navigation-button {
+  transform: scale(2.5) translateY(-14%) !important;
+}
+button.VueCarousel-navigation-button:focus {
+  outline: none !important;
 }

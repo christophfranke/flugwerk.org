@@ -25,23 +25,25 @@ export default {
 @import '@/style/_imports';
 
 .container {
-  width: calc(50vw + 150px);
+  margin: 0 auto;
+
+  width: calc(80vw + 60px);
+  @include from(950px) {
+    width: calc(50vw + 150px);
+  }
 }
 
 .content {
-  padding: 0 75px;
-  width: 50vw;
+  width: 80vw;
+  padding: 0 30px;
+
+  @include from(950px) {
+    width: 50vw;
+    padding: 0 75px;
+  }
 }
 </style>
 
 <style lang="scss">
 @import '@/style/_imports';
-
-button.VueCarousel-navigation-button {
-  transform: scale(3.5) translateY(-14%) !important;
-  // background-color: $yellow !important;
-}
-button.VueCarousel-navigation-button:focus {
-  outline: none !important;
-}
 </style>

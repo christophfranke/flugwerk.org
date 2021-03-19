@@ -53,6 +53,12 @@ export default {
     }
   },
 
+  watch:{
+    $route () {
+        this.isMobileMenuOpen = false
+    }
+  },
+
   computed: {
     header () {
       return this.$store.getters.header
