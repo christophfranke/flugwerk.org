@@ -1,9 +1,9 @@
 <template>
   <footer>
     <img src="/newsletter/title.png" class="newsletter-title" />
-    <form class="form">
-      <input v-model="input" type="text" class="input" placeholder="Email Adresse">
-      <button type="button" class="button">Anmelden</button>
+    <form class="form" method="POST" :action="signupAction" target="_blank" novalidate>
+      <input name="EMAIL" type="text" class="input" placeholder="Email Adresse">
+      <button type="submit" class="button">Anmelden</button>
     </form>
     <hr />
     <RichText :content="address" className="footer-address" />
@@ -28,12 +28,6 @@ export default {
   name: 'Footer',
   components,
 
-  data () {
-    return {
-      input: ''
-    }
-  },
-
   computed: {
     slices () {
       return this.$store.getters.footer.data.body.map(slice => ({
@@ -46,6 +40,9 @@ export default {
     },
     address () {
       return this.$store.getters.footer.data.adresse
+    },
+    signupAction () {
+      return 'https://flugwerk.us18.list-manage.com/subscribe/post?u=f509a06c4f035daa85627f028&amp;id=1a4837c332'
     }
   },
 
