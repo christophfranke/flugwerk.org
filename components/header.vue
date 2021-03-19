@@ -4,7 +4,7 @@
       <img src="/flieger.png" class="logo" />
       <nuxt-link to="/"><h1 class="title">{{ title }}</h1></nuxt-link>
     </div>
-    <img src="/bars.svg" class="mobile-menu-icon" @click="toggleMobileMenu" />
+    <img :src="isMobileMenuOpen ? '/close.svg' : '/bars.svg'" class="mobile-menu-icon" @click="toggleMobileMenu" />
     <nav :class="isMobileMenuOpen ? 'open' : 'closed'">
       <ul class="first-level">
         <li v-for="(item, index) of firstLevelNavItems" :key="index">
