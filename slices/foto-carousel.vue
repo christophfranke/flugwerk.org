@@ -29,25 +29,14 @@ export default {
 
 .carousel {
   margin: 0 auto;
-  width: 100vw;
-
-  @include from(500px) {  
-    width: calc(80vw + 20px);
-  }
+  width: calc(80vw + 20px);
 }
 
 .slide {
-  padding: 2.5vw;
-  width: 95vw;
-  @include from(500px) {  
-    padding: 10px;
-    width: 80vw;
-  }
+  padding: 10px;
+  width: 80vw;
 }
 .image {
-  width: 95vw;
-  @include from (500px) {
-    width: 80vw;
-  }
+  width: 80vw;
 }
 </style>

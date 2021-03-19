@@ -76,7 +76,8 @@ export default {
 
 
 .newsletter-title {
-  max-width: 100vw;
+  display: block;
+  width: 100vw;
   margin-bottom: -3vw;
 }
 
@@ -116,6 +117,7 @@ footer {
   background-color: $black;
   color: $yellow;
   padding: 20px 20px 50px 20px;
+  overflow: hidden;
 }
 
 hr {
@@ -127,6 +129,7 @@ ul {
   padding: 0;
   margin: 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 

@@ -128,7 +128,9 @@ export default {
   .content {
     padding: 25px;
     background-color: white;
-    min-width: 500px;
+    @include from(600px) {    
+      min-width: 500px;
+    }
     max-width: 1050px;
     position: relative;
   }
@@ -167,8 +169,16 @@ export default {
 }
 
 .event {
-  width: calc(30vw - 40px);
-  margin: 0 25px;
+  width: 95vw;
+  margin: 15px auto;
+  @include from(500px) {
+    width: calc(50vw - 50px);
+    margin: 0 10px;
+  }
+  @include from(950px) {
+    width: calc(30vw - 40px);
+    margin: 0 25px;
+  }
   cursor: pointer;
 
   img {
@@ -187,7 +197,10 @@ export default {
 }
 
 .main {
-  width: 90vw;
+  width: 95vw;
+  @include from(500px) {
+    width: 90vw;
+  }
   margin: 0 auto;
 }
 

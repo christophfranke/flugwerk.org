@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <div class="audio-player" v-for="(url, index) in audioUrls">
       <client-only>
         <mini-audio :audio-source="url" :html5="true" :width="400" />
@@ -30,9 +30,15 @@ export default {
 <style lang="scss" scoped>
 @import '@/style/_imports';
 
-.audio-player {
+.main {
   width: 95vw;
-  margin: 10px auto 0 auto;
+  margin: 0 auto;
+}
+
+.audio-player {
+  overflow-y: auto;
+  width: 95vw;
+  margin-top: 10px;
 }
 
 </style>
