@@ -1,6 +1,15 @@
 <template>
     <div class="container">
-        <RichText :content="text" :className="justify ? 'text-justify' : ''" />
+        <RichText
+            :content="text"
+            :className="{
+                'text-left': textAlign == 'left',
+                'text-right': textAlign == 'right',
+                'text-justify': textAlign == 'justify',
+                'text-smaller': fontSize == 'smaller',
+                'text-larger': fontSize == 'larger'
+            }"
+        />
     </div>
 </template>
 
@@ -17,8 +26,11 @@ export default {
         text() {
             return this.primary.text;
         },
-        justify() {
-            return !!this.primary.justify;
+        textAlign() {
+            return this.primary['text-align'];
+        },
+        fontSize() {
+            return this.primary['font-size'];
         }
     }
 };
