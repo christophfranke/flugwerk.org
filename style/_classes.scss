@@ -1,39 +1,39 @@
 .container {
-  width: 95vw;
-  margin: 0 auto;
+    width: 95vw;
+    margin: 0 auto;
 
-  @include from(500px) {
-    width: 80vw;
-  }
+    @include from(500px) {
+        width: 80vw;
+    }
 
-  @include from(950px) {
-    width: 50vw;
-  }
+    @include from(950px) {
+        width: 50vw;
+    }
 }
 
 .audio-player div.vueAudioBetter {
-  .operate span {
-    color: $black !important;
-  }
-  .slider {
-    .process {
-      background-color: $black;
+    .operate span {
+        color: $black !important;
     }
-    .block {
-      border: 1px solid $black;
+    .slider {
+        .process {
+            background-color: $black;
+        }
+        .block {
+            border: 1px solid $black;
+        }
     }
-  }
-  padding: 0 15px;
-  margin: 0;
-  box-shadow: none;
-  border-radius: 0;
-  background-image: none;
-  background-color: white;
+    padding: 0 15px;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+    background-image: none;
+    background-color: white;
 }
 
 button.VueCarousel-navigation-button {
-  transform: scale(2.5) translateY(-14%) !important;
+    transform: scale(2.5) translateY(-14%) !important;
 }
 button.VueCarousel-navigation-button:focus {
-  outline: none !important;
+    outline: none !important;
 }
