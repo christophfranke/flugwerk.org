@@ -37,7 +37,7 @@ export default {
             };
         },
         alignment() {
-            return this.primary.alignment ? 'right' : 'left';
+            return this.primary.alignment;
         }
     }
 };
