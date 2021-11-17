@@ -1,7 +1,15 @@
 <template>
-    <div class="main" :style="containerStyle">
-        <h2 class="horizontal title">{{ horizontalTitle }}</h2>
-        <h2 class="vertical title">{{ verticalTitle }}</h2>
+    <div
+        class="main"
+        :style="containerStyle"
+        :class="{ 'title--right': alignment == 'right' }"
+    >
+        <h2 class="horizontal title">
+            {{ horizontalTitle }}
+        </h2>
+        <h2 class="vertical title">
+            {{ verticalTitle }}
+        </h2>
     </div>
 </template>
 
@@ -27,6 +35,9 @@ export default {
                 transform: `translateX(${-this.primary.horizontal_shift ||
                     0}vw) translateY(${-this.primary.vertical_shift || 0}vw)`
             };
+        },
+        alignment() {
+            return this.primary.alignment ? 'right' : 'left';
         }
     }
 };
@@ -54,14 +65,22 @@ export default {
         justify-content: flex-end;
         flex-direction: row-reverse;
     }
+
     .vertical {
         margin-right: 10px;
+    }
+
+    .title--right {
+        &.main {
+            flex-direction: row;
+        }
     }
 }
 
 @include from(500px) {
     .horizontal {
         margin-left: 10vw;
+
         @include from(950px) {
             margin-left: 24vw;
         }
@@ -79,8 +98,32 @@ export default {
         transform: translateY(-47%) translateX(-50%) rotate(90deg)
             translateX(50%) translateY(50%) scale(-1);
         left: 11vw;
+
         @include from(950px) {
             left: 25vw;
+        }
+    }
+
+    .title--right {
+        .horizontal {
+            margin-left: 0;
+            text-align: right;
+
+            @include from(950px) {
+                margin-right: 10vw;
+            }
+        }
+
+        .vertical {
+            transform: none;
+            right: 0;
+            left: auto;
+            transform-origin: 100% 100%;
+            transform: rotate(90deg) translate3d(100%, 100%, 0);
+
+            @include from(950px) {
+                right: 10vw;
+            }
         }
     }
 }
