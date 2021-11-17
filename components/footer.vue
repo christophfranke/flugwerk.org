@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <img src="/newsletter/title.png" class="newsletter-title" />
+        <h2 class="newsletter-title">Newsletter</h2>
         <form
             class="form"
             method="POST"
@@ -88,9 +88,8 @@ export default {
 }
 
 .newsletter-title {
-    display: block;
-    width: 100vw;
-    margin-bottom: -3vw;
+    color: $yellow;
+    text-align: center;
 }
 
 .input {
@@ -104,8 +103,7 @@ export default {
     outline: none;
 
     &::placeholder {
-        font-style: italic;
-        color: $blue;
+        color: $dark-grey;
     }
 }
 
