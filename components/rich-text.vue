@@ -14,7 +14,6 @@ export default {
             required: true
         },
         className: {
-            type: String,
             required: false
         }
     },
