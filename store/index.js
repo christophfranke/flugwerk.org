@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Api from '~/util/api';
-import linkResolver from '~/util/linkResolver';
 
 export default () =>
     new Vuex.Store({
@@ -11,8 +10,13 @@ export default () =>
             footer: ({ content }) => content.find(doc => doc.type === 'footer'),
             pages: (state, { content }) =>
                 content.filter(doc => doc.type === 'page'),
-            page: (state, { pages }) => slug => {
-                const page = pages.find(page => page.uid === slug);
+            page: (state, { pages }) => (slug, lang) => {
+                const page = pages.find(page => {
+                    return (
+                        page.uid === slug &&
+                        page.lang.substring(0, 2) == (lang || 'de')
+                    );
+                });
                 return page && page.data;
             },
             events: (state, { content }) =>
@@ -21,18 +25,26 @@ export default () =>
                     .sort(
                         (a, b) => new Date(a.data.time) - new Date(b.data.time)
                     ),
-            event: (state, { events }) => slug => {
-                const event = events.find(event => event.uid === slug);
+            event: (state, { events }) => (slug, lang) => {
+                const event = events.find(
+                    event =>
+                        event.uid === slug &&
+                        event.lang.substring(0, 2) == (lang || 'de')
+                );
                 return event && event.data;
             },
             profiles: (state, { content }) =>
                 content.filter(doc => doc.type === 'profile'),
-            profile: (state, { profiles }) => uid => {
-                const profile = profiles.find(profile => profile.uid === uid);
+            profile: (state, { profiles }) => (uid, lang) => {
+                const profile = profiles.find(
+                    profile =>
+                        profile.uid === uid &&
+                        profile.lang.substring(0, 2) == (lang || 'de')
+                );
                 return profile && profile.data;
             },
-            slices: (state, { page, home }) => slug =>
-                (slug ? page(slug) : home).body
+            slices: (state, { page, home }) => (slug, lang) =>
+                (slug && lang ? page(slug, lang) : home).body
         },
         state: {
             content: {}
