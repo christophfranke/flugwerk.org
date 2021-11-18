@@ -11,4 +11,5 @@ export default () =>
             })
         )
         .then(content => content.results)
-        .then(pages => pages.map(page => linkResolver(page)));
+        .then(pages => pages.map(page => linkResolver(page)))
+        .then(pages => ['/', '/de', '/en', ...pages]);

@@ -10,7 +10,6 @@ import slices from '@/slices';
 
 // use fixed home slug for home page
 const slug = 'home';
-const lang = 'de';
 
 export default {
     name: 'Home',
@@ -20,16 +19,19 @@ export default {
     },
 
     computed: {
+        lang() {
+            return this.$router.currentRoute.params.lang;
+        },
         page() {
-            return this.$store.getters.page(slug, lang);
+            return this.$store.getters.page(slug, this.lang);
         },
         slices() {
-            return this.$store.getters.slices(slug, lang);
+            return this.$store.getters.slices(slug, this.lang);
         }
     },
 
     asyncData({ params, store, error }) {
-        if (!store.getters.page(slug, lang)) {
+        if (!store.getters.page(slug, params.lang)) {
             error({ statusCode: 404, message: 'Page not found' });
         }
     }
