@@ -2,7 +2,6 @@ import routes from './util/routes.js';
 
 export default {
     plugins: [{ src: 'plugins/client-only', ssr: false }],
-    modules: ['@nuxtjs/redirect-module'],
     head: {
         meta: [
             { charset: 'utf-8' },
@@ -13,6 +12,5 @@ export default {
         routes() {
             return routes();
         }
-    },
-    redirect: []
+    }
 };
