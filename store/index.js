@@ -40,7 +40,7 @@ export default () =>
         actions: {
             nuxtServerInit({ state }, { req }) {
                 return Api({ req })
-                    .then(api => api.query('', { pageSize: 100 }))
+                    .then(api => api.query('', { pageSize: 100, lang: '*' }))
                     .then(response => {
                         if (response.total_pages > 1) {
                             console.error(
