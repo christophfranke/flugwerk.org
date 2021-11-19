@@ -2,7 +2,7 @@
     <header v-if="header" :class="isMobileMenuOpen ? 'fixed' : ''">
         <div class="left">
             <img src="/flieger.png" class="logo" />
-            <nuxt-link to="/"
+            <nuxt-link :to="`/${lang}`"
                 ><h1 class="title">{{ title }}</h1></nuxt-link
             >
         </div>
