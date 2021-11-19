@@ -43,7 +43,7 @@ export default {
             return this.$store.getters.footer(this.lang || 'de');
         },
         slices() {
-            this.footer.data.body.map(slice => ({
+            return this.footer.data.body.map(slice => ({
                 ...slice.primary,
                 type: slice.slice_type,
                 href:
