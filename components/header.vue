@@ -141,6 +141,9 @@ export default {
                     }))
             );
         },
+        lang() {
+            return this.$store.state.lang;
+        },
         alternateLang() {
             return this.$store.getters.alternateLang;
         }
@@ -162,7 +165,9 @@ export default {
             );
         },
         href(item) {
-            return item.page && item.page.uid && `/${item.page.uid}`;
+            return (
+                item.page && item.page.uid && `/${this.lang}/${item.page.uid}`
+            );
         },
         classNames(icon) {
             return {
