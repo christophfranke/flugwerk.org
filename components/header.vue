@@ -119,16 +119,15 @@ export default {
                         submenu: this.secondLevelNavItems(slice)
                     }));
 
-            if (!this.hasTranslation) return header;
+            header.push({
+                name: this.alternateLang,
+                href:
+                    `/${this.alternateLang}/` +
+                    (this.hasTranslation ? this.slug : ''),
+                submenu: []
+            });
 
-            return [
-                ...header,
-                {
-                    name: this.alternateLang,
-                    href: `/${this.alternateLang}/${this.slug}`,
-                    submenu: []
-                }
-            ];
+            return header;
         },
         socialMediaNavItems() {
             return (
