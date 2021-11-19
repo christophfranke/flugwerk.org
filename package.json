@@ -10,12 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.12.1",
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "@prismicio/client": "^5.1.0",
     "node-sass": "^4.14.1",
-    "nuxt": "^2.12.2",
-    "prismic-dom": "^2.1.0",
-    "sass-loader": "^8.0.2",
+    "nuxt": "^2.15.8",
+    "prismic-dom": "^2.2.6",
+    "sass-loader": "^10.1.1",
     "vue-audio-better": "^3.0.1",
     "vue-carousel": "^0.18.0"
   }
