@@ -1,29 +1,17 @@
 <template>
-    <div>
-        <Header />
-
-        <div class="main">
-            <Slice
-                v-for="(slice, index) in slices"
-                :key="'slice_' + index"
-                :slice="slice"
-            />
-        </div>
-    </div>
+    <Page :slices="slices" />
 </template>
 
 <script>
 import components from '@/components';
-import slices from '@/slices';
 
 // use fixed home slug for home page
 const slug = 'home';
 
 export default {
-    name: 'Home',
+    name: 'PrismicPage',
     components: {
-        ...components,
-        ...slices
+        ...components
     },
 
     computed: {
@@ -36,6 +24,10 @@ export default {
         slices() {
             return this.$store.getters.slices(slug, this.lang);
         }
+    },
+
+    created() {
+        this.$store.commit('setLang', this.lang);
     },
 
     asyncData({ params, store, error }) {

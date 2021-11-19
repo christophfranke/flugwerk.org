@@ -1,30 +1,18 @@
 <template>
-    <div>
-        <Header />
-
-        <div class="main">
-            <Slice
-                v-for="(slice, index) in slices"
-                :key="'slice_' + index"
-                :slice="slice"
-            />
-        </div>
-    </div>
+    <Page :slices="slices" />
 </template>
 
 <script>
 import components from '@/components';
-import slices from '@/slices';
 
 // use fixed home slug for home page
 const slug = 'home';
 const lang = 'de';
 
 export default {
-    name: 'Home',
+    name: 'HomePage',
     components: {
-        ...components,
-        ...slices
+        ...components
     },
 
     computed: {

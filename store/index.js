@@ -7,9 +7,10 @@ export default () =>
     new Vuex.Store({
         getters: {
             content: ({ content }) => content,
-            header: ({ content }) =>
-                content.find(doc => doc.type === 'header' && isLang(doc, 'de')),
-            footer: ({ content }) => content.find(doc => doc.type === 'footer'),
+            header: ({ content }) => lang =>
+                content.find(doc => doc.type === 'header' && isLang(doc, lang)),
+            footer: ({ content }) => lang =>
+                content.find(doc => doc.type === 'footer' && isLang(doc, lang)),
             pages: (state, { content }) =>
                 content.filter(doc => doc.type === 'page'),
             page: (state, { pages }) => (slug, lang) => {

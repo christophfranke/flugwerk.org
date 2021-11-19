@@ -1,8 +1,5 @@
 <template>
-    <div>
-        <nuxt />
-        <Footer />
-    </div>
+    <nuxt />
 </template>
 
 <script>

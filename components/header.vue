@@ -94,7 +94,7 @@ export default {
 
     computed: {
         header() {
-            return this.$store.getters.header;
+            return this.$store.getters.header(this.lang || 'de');
         },
         title() {
             return this.header && this.header.data.title[0].text;

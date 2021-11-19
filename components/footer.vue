@@ -14,12 +14,11 @@
                 class="input"
                 placeholder="Email Adresse"
             />
-            <button type="submit" class="button">Anmelden</button>
         </form>
         <hr />
         <RichText :content="address" className="footer-address" />
         <ul>
-            <li v-for="slice in slices" :key="">
+            <li v-for="(slice, index) in slices" :key="'slice_' + index">
                 <nuxt-link :to="slice.href" v-if="slice.type === 'menu_entry'">
                     {{ linkName(slice) }}
                 </nuxt-link>
@@ -40,8 +39,11 @@ export default {
     components,
 
     computed: {
+        footer() {
+            return this.$store.getters.footer(this.lang || 'de');
+        },
         slices() {
-            return this.$store.getters.footer.data.body.map(slice => ({
+            this.footer.data.body.map(slice => ({
                 ...slice.primary,
                 type: slice.slice_type,
                 href:
@@ -51,10 +53,13 @@ export default {
             }));
         },
         address() {
-            return this.$store.getters.footer.data.adresse;
+            return this.footer.data.adresse;
         },
         signupAction() {
             return 'https://flugwerk.us18.list-manage.com/subscribe/post?u=f509a06c4f035daa85627f028&amp;id=1a4837c332';
+        },
+        lang() {
+            return this.$store.state.lang;
         }
     },
 
@@ -107,20 +112,6 @@ export default {
     }
 }
 
-.button {
-    border: 1px solid $blue;
-    cursor: pointer;
-    border: none;
-    color: transparent;
-    background-color: $yellow;
-    background-image: url(/newsletter/button.png);
-    background-size: contain;
-    width: 100px;
-    height: 30px;
-    transform: translateY(-2px);
-    overflow: hidden;
-}
-
 footer {
     margin-top: 50px;
     background-color: $black;
@@ -130,7 +121,7 @@ footer {
 }
 
 hr {
-    margin-top: 80px;
+    margin-top: 50px;
     border: none;
 }
 

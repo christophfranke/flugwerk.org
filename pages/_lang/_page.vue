@@ -1,15 +1,5 @@
 <template>
-    <div>
-        <Header />
-
-        <div class="main">
-            <Slice
-                v-for="(slice, index) in slices"
-                :key="'slice_' + index"
-                :slice="slice"
-            />
-        </div>
-    </div>
+    <Page :slices="slices" />
 </template>
 
 <script>
@@ -17,7 +7,7 @@ import components from '@/components';
 import slices from '@/slices';
 
 export default {
-    name: 'Page',
+    name: 'PrismicPage',
     components: {
         ...components,
         ...slices
