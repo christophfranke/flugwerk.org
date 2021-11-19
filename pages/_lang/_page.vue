@@ -1,8 +1,14 @@
 <template>
-    <div class="main">
-        <template v-for="(slice, index) in slices">
-            <Slice :slice="slice" :key="index" />
-        </template>
+    <div>
+        <Header />
+
+        <div class="main">
+            <Slice
+                v-for="(slice, index) in slices"
+                :key="'slice_' + index"
+                :slice="slice"
+            />
+        </div>
     </div>
 </template>
 
@@ -32,7 +38,7 @@ export default {
         }
     },
 
-    mounted() {
+    created() {
         this.$store.commit('setLang', this.lang);
     },
 

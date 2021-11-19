@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Slice :slice="slice" :key="index" v-for="(slice, index) in slices" />
+        <Header />
+
+        <div class="main">
+            <Slice
+                v-for="(slice, index) in slices"
+                :key="'slice_' + index"
+                :slice="slice"
+            />
+        </div>
     </div>
 </template>
 

@@ -1,18 +1,17 @@
 <template>
-  <div>
-    <Header />
-    <nuxt/>
-    <Footer />
-  </div>
+    <div>
+        <nuxt />
+        <Footer />
+    </div>
 </template>
 
 <script>
-import components from '@/components'
+import components from '@/components';
 
 export default {
-  name: 'DefaultLayout',
-  components
-}
+    name: 'DefaultLayout',
+    components
+};
 </script>
 
 <style lang="scss">
