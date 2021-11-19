@@ -1,21 +1,20 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Api from '~/util/api';
+import isLang from '~/util/isLang';
 
 export default () =>
     new Vuex.Store({
         getters: {
             content: ({ content }) => content,
-            header: ({ content }) => content.find(doc => doc.type === 'header'),
+            header: ({ content }) =>
+                content.find(doc => doc.type === 'header' && isLang(doc, 'de')),
             footer: ({ content }) => content.find(doc => doc.type === 'footer'),
             pages: (state, { content }) =>
                 content.filter(doc => doc.type === 'page'),
             page: (state, { pages }) => (slug, lang) => {
                 const page = pages.find(page => {
-                    return (
-                        page.uid === slug &&
-                        page.lang.substring(0, 2) == (lang || 'de')
-                    );
+                    return page.uid === slug && isLang(page, 'de');
                 });
                 return page && page.data;
             },
@@ -27,9 +26,7 @@ export default () =>
                     ),
             event: (state, { events }) => (slug, lang) => {
                 const event = events.find(
-                    event =>
-                        event.uid === slug &&
-                        event.lang.substring(0, 2) == (lang || 'de')
+                    event => event.uid === slug && isLang(event, 'de')
                 );
                 return event && event.data;
             },
@@ -37,17 +34,22 @@ export default () =>
                 content.filter(doc => doc.type === 'profile'),
             profile: (state, { profiles }) => (uid, lang) => {
                 const profile = profiles.find(
-                    profile =>
-                        profile.uid === uid &&
-                        profile.lang.substring(0, 2) == (lang || 'de')
+                    profile => profile.uid === uid && isLang(profile, 'de')
                 );
                 return profile && profile.data;
             },
             slices: (state, { page, home }) => (slug, lang) =>
-                (slug && lang ? page(slug, lang) : home).body
+                (slug && lang ? page(slug, lang) : home).body,
+            alternateLang: ({ lang }) => (lang == 'de' ? 'en' : 'de')
         },
         state: {
-            content: {}
+            content: {},
+            lang: 'de'
+        },
+        mutations: {
+            setLang(state, lang) {
+                state.lang = lang;
+            }
         },
         actions: {
             nuxtServerInit({ state }, { req }) {
