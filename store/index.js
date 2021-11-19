@@ -14,7 +14,7 @@ export default () =>
                 content.filter(doc => doc.type === 'page'),
             page: (state, { pages }) => (slug, lang) => {
                 const page = pages.find(page => {
-                    return page.uid === slug && isLang(page, 'de');
+                    return page.uid === slug && isLang(page, lang);
                 });
                 return page && page.data;
             },
@@ -26,7 +26,7 @@ export default () =>
                     ),
             event: (state, { events }) => (slug, lang) => {
                 const event = events.find(
-                    event => event.uid === slug && isLang(event, 'de')
+                    event => event.uid === slug && isLang(event, lang)
                 );
                 return event && event.data;
             },
@@ -34,7 +34,7 @@ export default () =>
                 content.filter(doc => doc.type === 'profile'),
             profile: (state, { profiles }) => (uid, lang) => {
                 const profile = profiles.find(
-                    profile => profile.uid === uid && isLang(profile, 'de')
+                    profile => profile.uid === uid && isLang(profile, lang)
                 );
                 return profile && profile.data;
             },
