@@ -52,9 +52,14 @@ export default {
     margin: 0;
     font-family: 'Headline One', sans serif;
     font-size: 11vw;
+
     @include from(950px) {
         font-size: 15vw;
     }
+}
+
+.main {
+    pointer-events: none;
 }
 
 @include upto(499px) {
