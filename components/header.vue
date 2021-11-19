@@ -99,8 +99,17 @@ export default {
         title() {
             return this.header && this.header.data.title[0].text;
         },
+        slug() {
+            return this.$route.params.page || 'home';
+        },
+        hasTranslation() {
+            return !!this.$store.getters.page(
+                this.slug,
+                this.$store.getters.alternateLang
+            );
+        },
         firstLevelNavItems() {
-            return (
+            const header =
                 this.header &&
                 this.header.data.body
                     .filter(slice => slice.slice_type === 'menu')
@@ -108,8 +117,18 @@ export default {
                         name: this.name(slice.primary),
                         href: this.href(slice.primary),
                         submenu: this.secondLevelNavItems(slice)
-                    }))
-            );
+                    }));
+
+            if (!this.hasTranslation) return header;
+
+            return [
+                ...header,
+                {
+                    name: this.alternateLang,
+                    href: `/${this.alternateLang}/${this.slug}`,
+                    submenu: []
+                }
+            ];
         },
         socialMediaNavItems() {
             return (
@@ -121,6 +140,9 @@ export default {
                         href: slice.primary.link.url
                     }))
             );
+        },
+        alternateLang() {
+            return this.$store.getters.alternateLang;
         }
     },
 

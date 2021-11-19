@@ -19,10 +19,10 @@ export default {
 
     computed: {
         slug() {
-            return this.$router.currentRoute.params.page;
+            return this.$route.params.page;
         },
         lang() {
-            return this.$router.currentRoute.params.lang;
+            return this.$route.params.lang;
         },
         page() {
             return this.$store.getters.page(this.slug, this.lang);
@@ -30,6 +30,10 @@ export default {
         slices() {
             return this.$store.getters.slices(this.slug, this.lang);
         }
+    },
+
+    mounted() {
+        this.$store.commit('setLang', this.lang);
     },
 
     asyncData({ params, store, error }) {
