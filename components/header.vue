@@ -53,20 +53,21 @@
                             v-for="(item, index) of socialMediaNavItems"
                             :key="firstLevelNavItems.length + index"
                         >
-                            <a :href="item.href" target="_blank"
-                                ><i :class="item.icon"></i
-                            ></a>
+                            <a :href="item.href" target="_blank">
+                                <img :src="item.img" :alt="item.name" />
+                            </a>
                         </li>
                     </ul>
                 </li>
+                <li class="w-100"></li>
                 <li
                     v-for="(item, index) of socialMediaNavItems"
                     :key="firstLevelNavItems.length + index"
                     class="social-media desktop-only"
                 >
-                    <a :href="item.href" target="_blank"
-                        ><i :class="item.icon"></i
-                    ></a>
+                    <a :href="item.href" target="_blank">
+                        <img :src="item.img" :alt="item.name" />
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -77,19 +78,19 @@
 export default {
     name: 'Header',
     components: {
-        PrismicImage: () => import('./prismic-image.vue')
+        PrismicImage: () => import('./prismic-image.vue'),
     },
 
     data() {
         return {
-            isMobileMenuOpen: false
+            isMobileMenuOpen: false,
         };
     },
 
     watch: {
         $route() {
             this.isMobileMenuOpen = false;
-        }
+        },
     },
 
     computed: {
@@ -112,11 +113,11 @@ export default {
             const header =
                 this.header &&
                 this.header.data.body
-                    .filter(slice => slice.slice_type === 'menu')
-                    .map(slice => ({
+                    .filter((slice) => slice.slice_type === 'menu')
+                    .map((slice) => ({
                         name: this.name(slice.primary),
                         href: this.href(slice.primary),
-                        submenu: this.secondLevelNavItems(slice)
+                        submenu: this.secondLevelNavItems(slice),
                     }));
 
             header.push({
@@ -124,7 +125,7 @@ export default {
                 href:
                     `/${this.alternateLang}/` +
                     (this.hasTranslation ? this.slug : ''),
-                submenu: []
+                submenu: [],
             });
 
             return header;
@@ -133,10 +134,12 @@ export default {
             return (
                 this.header &&
                 this.header.data.body
-                    .filter(slice => slice.slice_type === 'social_media_item')
-                    .map(slice => ({
-                        icon: this.classNames(slice.primary.icon),
-                        href: slice.primary.link.url
+                    .filter((slice) => slice.slice_type === 'social_media_item')
+                    .map((slice) => ({
+                        name: slice.primary.icon,
+                        img:
+                            '/img/' + slice.primary.icon.toLowerCase() + '.png',
+                        href: slice.primary.link.url,
                     }))
             );
         },
@@ -145,16 +148,16 @@ export default {
         },
         alternateLang() {
             return this.$store.getters.alternateLang;
-        }
+        },
     },
 
     methods: {
         secondLevelNavItems(slice) {
             return slice.items
-                .filter(item => item.page || item.name.length > 0)
-                .map(item => ({
+                .filter((item) => item.page || item.name.length > 0)
+                .map((item) => ({
                     name: this.name(item),
-                    href: this.href(item)
+                    href: this.href(item),
                 }));
         },
         name(item) {
@@ -168,21 +171,16 @@ export default {
                 item.page && item.page.uid && `/${this.lang}/${item.page.uid}`
             );
         },
-        classNames(icon) {
-            return {
-                facebook: ['fab', 'fa-facebook-f'],
-                instagram: ['fab', 'fa-instagram']
-            }[icon.toLowerCase()];
-        },
         toggleMobileMenu() {
             this.isMobileMenuOpen = !this.isMobileMenuOpen;
-        }
-    }
+        },
+    },
 };
 </script>
 
 <style lang="scss" scoped>
 @import '@/style/_imports';
+
 .no-link {
     cursor: default;
 }
@@ -200,7 +198,7 @@ export default {
 }
 
 .left {
-    padding: 30px;
+    padding-left: 30px;
     z-index: 3;
 }
 
@@ -208,10 +206,8 @@ export default {
     clear: both;
 }
 
-.title,
 .title:visited {
     display: inline;
-    fontsize: 80px;
     color: $black;
 }
 
@@ -224,11 +220,13 @@ header {
 // mobile menu
 .mobile-menu-icon {
     display: block;
+    position: fixed;
     height: 48px;
-    margin-right: 30px;
-    margin-top: 30px;
+    right: 16px;
+    top: 16px;
     width: auto;
     cursor: pointer;
+    z-index: 999;
 }
 
 @include upto(949px) {
@@ -246,12 +244,13 @@ header {
 
     nav {
         display: none;
+
         &.open {
             display: block;
         }
 
         position: fixed;
-        top: 100px;
+        top: 0;
         left: 0;
         right: 0;
         bottom: 0;
@@ -286,8 +285,17 @@ header {
             li {
                 display: block;
                 margin: 0 10px;
+
+                img {
+                    width: 32px;
+                    height: 32px;
+                }
             }
         }
+    }
+
+    .title {
+        display: none;
     }
 }
 
@@ -302,7 +310,7 @@ header {
     }
 
     nav {
-        margin: 0 auto;
+        margin: 16px auto 0 auto;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -322,7 +330,7 @@ header {
             margin: 0;
             background-color: $yellow;
             &.first-level {
-                padding: 2vw 4vw;
+                padding: 0;
                 display: flex;
                 justify-content: center;
                 span {
@@ -372,14 +380,10 @@ header {
             margin-left: 2vw;
             position: relative;
             z-index: 2;
-            i {
-                padding: 5px;
-                margin: -5px;
-                border-radius: 5px;
-                &:hover {
-                    color: $yellow;
-                    background-color: $black;
-                }
+
+            img {
+                width: 32px;
+                height: 32px;
             }
         }
     }
