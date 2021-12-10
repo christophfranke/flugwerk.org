@@ -342,7 +342,7 @@ header {
                 }
             }
             &.second-level {
-                border: 7px solid $black;
+                border: 3px solid $black;
                 padding: 0;
                 transition: opacity 0.3s;
                 display: block;
