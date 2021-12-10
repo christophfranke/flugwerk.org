@@ -59,7 +59,6 @@
                         </li>
                     </ul>
                 </li>
-                <li class="w-100"></li>
                 <li
                     v-for="(item, index) of socialMediaNavItems"
                     :key="firstLevelNavItems.length + index"
